@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": "7644",
+      "fullName": "shigee",
+      "email": "shigee2004@gmail.com",
+      "password": "12345",
+      "role": "jobseeker"
+    },
+    {
+      "id": "b677",
+      "fullName": "sandy",
+      "email": "sandy2005@gmail.com",
+      "password": "1234567",
+      "role": "employer"
+    },
+    {
+      "id": "ae61",
+      "fullName": "arunan",
+      "email": "arun@gmail.com",
+      "password": "1234567890",
+      "role": "jobseeker"
+    }
+  ]
+}
