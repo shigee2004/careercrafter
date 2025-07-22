@@ -1,58 +1,100 @@
 // src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate
+} from 'react-router-dom';
 
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
-import Dashboard from './pages/Dashboard';
+import LoginPage      from './pages/LoginPage';
+import RegisterPage   from './pages/RegisterPage';
+import Dashboard      from './pages/Dashboard';
+import ProfilePage    from './pages/ProfilePage';
+import ResumePage     from './pages/ResumePage';
+import ViewResumePage from './pages/ViewResumePage';
+import ResumePreview  from './pages/ResumePreview';
+
+function PrivateRoute({ children }) {
+  const auth = Boolean(localStorage.getItem('token'));
+  return auth ? children : <Navigate to="/login" replace />;
+}
 
 function App() {
-  // Simple auth check; swap this out for your real logic (e.g. context or Redux)
-  const isAuthenticated = Boolean(localStorage.getItem('token'));
+  const auth = Boolean(localStorage.getItem('token'));
 
   return (
     <Router>
       <Routes>
-        {/* Redirect root to login or dashboard based on auth */}
+        {/* root: send logged‑in folks to /dashboard, others to /login */}
         <Route
           path="/"
           element={
-            isAuthenticated
+            auth
               ? <Navigate to="/dashboard" replace />
               : <Navigate to="/login" replace />
           }
         />
 
-        {/* Public routes */}
+        {/* login/register are public */}
         <Route
           path="/login"
           element={
-            isAuthenticated
-              ? <Navigate to="/dashboard" replace />
-              : <LoginPage />
+            auth ? <Navigate to="/dashboard" replace /> : <LoginPage />
           }
         />
         <Route
           path="/register"
           element={
-            isAuthenticated
-              ? <Navigate to="/dashboard" replace />
-              : <RegisterPage />
+            auth ? <Navigate to="/dashboard" replace /> : <RegisterPage />
           }
         />
 
-        {/* Protected route */}
+        {/* protected: dashboard + profile */}
         <Route
           path="/dashboard"
           element={
-            isAuthenticated
-              ? <Dashboard />
-              : <Navigate to="/login" replace />
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <ProfilePage />
+            </PrivateRoute>
           }
         />
 
-        {/* Catch‑all: send unknown URLs back home */}
+        {/* resume list, edit & preview */}
+        <Route
+          path="/resume"
+          element={
+            <PrivateRoute>
+              <ResumePage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/resume/preview"
+          element={
+            <PrivateRoute>
+              <ResumePreview />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/resume/:id"
+          element={
+            <PrivateRoute>
+              <ViewResumePage />
+            </PrivateRoute>
+          }
+        />
+
+        {/* catch‑all */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
@@ -60,4 +102,7 @@ function App() {
 }
 
 export default App;
+
+
+
 

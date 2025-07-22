@@ -1,34 +1,30 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { loginUser } from '../api/userApi';
+import { loginUser } from '../api/userApi';  // our GET /users?email... helper
 
 export default function LoginPage() {
   const [email,    setEmail]    = useState('');
   const [password, setPassword] = useState('');
   const [role,     setRole]     = useState('jobseeker');
+  const [error,    setError]    = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async e => {
     e.preventDefault();
+    setError('');
     try {
-      // this will return an array of matching users
       const res = await loginUser({ email, password, role });
       const users = res.data;
-
-      if (!users.length) {
-        // no match
-        return alert('Invalid credentials');
+      if (users.length) {
+        // success!
+        localStorage.setItem('token', users[0].id);
+        navigate('/dashboard');
+      } else {
+        setError('Invalid email/password/role');
       }
-
-      // found one!
-      const user = users[0];
-      // store their id as a "token"
-      localStorage.setItem('token', user.id);
-      alert('Login successful!');
-      navigate('/dashboard');
     } catch (err) {
-      console.error('Login error:', err);
-      alert('Something went wrong, check console.');
+      console.error(err);
+      setError('Server error, try again later');
     }
   };
 
@@ -45,7 +41,6 @@ export default function LoginPage() {
             required
             style={styles.input}
           />
-
           <input
             type="password"
             placeholder="Password"
@@ -54,7 +49,6 @@ export default function LoginPage() {
             required
             style={styles.input}
           />
-
           <select
             value={role}
             onChange={e => setRole(e.target.value)}
@@ -63,6 +57,8 @@ export default function LoginPage() {
             <option value="employer">Employer</option>
             <option value="jobseeker">Job Seeker</option>
           </select>
+
+          {error && <p style={styles.error}>{error}</p>}
 
           <button type="submit" style={styles.button}>
             Log In
@@ -122,7 +118,7 @@ const styles = {
   button: {
     width: '100%',
     padding: '12px',
-    background: '#00796b',
+    background: '#004179ff',
     color: '#fff',
     border: 'none',
     borderRadius: '8px',

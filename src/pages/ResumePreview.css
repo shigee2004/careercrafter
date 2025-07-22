@@ -1,0 +1,59 @@
+.resume-preview-root {
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-preview-content {
+  padding: 2rem;
+  background: #f9fbfe;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.rp-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.rp-name {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #0d47a1;
+}
+.rp-contact {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+.rp-section {
+  margin-bottom: 1.5rem;
+}
+.rp-section h2 {
+  margin-bottom: 0.75rem;
+  color: #1976d2;
+  border-bottom: 2px solid #bbdefb;
+  padding-bottom: 0.2rem;
+}
+
+.rp-item {
+  margin-bottom: 1rem;
+}
+.rp-item-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: #333;
+}
+.rp-item-header strong {
+  font-size: 1.1rem;
+}
+.rp-dates {
+  font-style: italic;
+  color: #777;
+}
+
+.rp-section p {
+  margin: 0.5rem 0 0;
+  color: #444;
+  line-height: 1.5;
+}

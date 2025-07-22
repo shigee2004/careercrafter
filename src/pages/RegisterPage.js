@@ -1,29 +1,26 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { registerUser } from '../api/userApi';
+import { registerUser } from '../api/userApi'; // our POST /users helper
 
 export default function RegisterPage() {
   const [fullName, setFullName] = useState('');
   const [email,    setEmail]    = useState('');
   const [password, setPassword] = useState('');
   const [role,     setRole]     = useState('jobseeker');
+  const [error,    setError]    = useState('');
   const navigate = useNavigate();
 
   const handleRegister = async e => {
     e.preventDefault();
+    setError('');
     try {
-      // send to json‑server → updates db.json
       const { data } = await registerUser({ fullName, email, password, role });
-      console.log('Wrote into db.json:', data);
-
-      // store token (or user id) in localStorage if you need auth
+      // success!
       localStorage.setItem('token', data.id);
-
-      alert('Registration successful!');
       navigate('/dashboard');
     } catch (err) {
-      console.error('Register error:', err);
-      alert('Registration failed—check console.');
+      console.error(err);
+      setError('Registration failed, try again');
     }
   };
 
@@ -40,7 +37,6 @@ export default function RegisterPage() {
             required
             style={styles.input}
           />
-
           <input
             type="email"
             placeholder="Email Address"
@@ -49,7 +45,6 @@ export default function RegisterPage() {
             required
             style={styles.input}
           />
-
           <input
             type="password"
             placeholder="Create Password"
@@ -58,7 +53,6 @@ export default function RegisterPage() {
             required
             style={styles.input}
           />
-
           <select
             value={role}
             onChange={e => setRole(e.target.value)}
@@ -68,11 +62,12 @@ export default function RegisterPage() {
             <option value="jobseeker">Job Seeker</option>
           </select>
 
+          {error && <p style={styles.error}>{error}</p>}
+
           <button type="submit" style={styles.button}>
             Register
           </button>
         </form>
-
         <p style={styles.signupText}>
           Already have an account?{' '}
           <Link to="/login" style={styles.link}>
@@ -133,7 +128,7 @@ const styles = {
   button: {
     width: '100%',
     padding: '12px',
-    background: '#00796b',
+    background: '#004179ff',
     color: '#ffffff',
     border: 'none',
     borderRadius: '8px',
@@ -147,7 +142,7 @@ const styles = {
     color: '#555',
   },
   link: {
-    color: '#00796b',
+    color: '#004179ff',
     textDecoration: 'none',
     fontWeight: '600',
   },

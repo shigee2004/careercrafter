@@ -1,0 +1,121 @@
+.feat-card {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  border: 1px solid #bbdefb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-sizing: border-box;
+}
+
+.feat-card-left {
+  flex: 1;
+}
+
+.feat-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.feat-logo {
+  color: #1976d2;
+  flex-shrink: 0;
+}
+
+.feat-title {
+  margin: 0;
+  font-size: 1.375rem;
+  color: #0d47a1;
+  flex-grow: 1;
+}
+
+.feat-badge {
+  background: #66bb6a;
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.feat-bookmark {
+  color: #1976d2;
+  cursor: pointer;
+}
+
+.feat-subheader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.feat-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.icon-inline {
+  margin-right: 0.25rem;
+  vertical-align: middle;
+  color: #1976d2;
+}
+
+.feat-desc {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.feat-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.feat-tag {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+
+.feat-card-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+
+.btn-apply {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.btn-details {
+  background: #fff;
+  color: #1976d2;
+  border: 1px solid #1976d2;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+

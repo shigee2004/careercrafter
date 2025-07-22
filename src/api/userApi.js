@@ -16,3 +16,11 @@ export function loginUser({ email, password, role }) {
     params: { email, password, role }
   });
 }
+// src/api/userApi.js
+export function fetchJobs() {
+  return API.get('/jobs');
+}
+
+export function fetchCompanies() {
+  return API.get('/companies');
+}

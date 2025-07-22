@@ -1,0 +1,106 @@
+.resume-root h2 {
+  color: #0d47a1;
+  margin-bottom: 1rem;
+}
+
+.section {
+  background: #fff;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.section label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.8rem;
+}
+
+.section input,
+.section textarea {
+  margin-top: 0.4rem;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.summary textarea {
+  resize: vertical;
+}
+
+.list-section h3 {
+  margin-bottom: 0.5rem;
+  color: #0d47a1;
+}
+
+.list-item {
+  position: relative;
+  padding: 0.8rem;
+  border: 1px solid #dde5f1;
+  margin-bottom: 0.8rem;
+  border-radius: 6px;
+  background: #fafbfc;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: #c62828;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.dates {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.save-btn {
+  margin-top: 1.5rem;
+  background: #388e3c;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.preview-btn {
+  margin-left: 1rem;
+  background: #0288d1;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.preview-btn:hover {
+  background: #0277bd;
+}
+
+

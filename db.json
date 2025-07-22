@@ -21,5 +21,216 @@
       "password": "1234567890",
       "role": "jobseeker"
     }
+  ],
+  "jobs": [
+    {
+      "id": "job1",
+      "title": "Senior Frontend Developer",
+      "company": "TechCorp Inc.",
+      "rating": 4.8,
+      "teamSize": "500‑1000",
+      "location": "San Francisco, CA",
+      "type": "Full‑time",
+      "salary": "$120k‑$160k",
+      "postedAgo": "2 days ago",
+      "description": "Join our team to build cutting‑edge web applications using React, TypeScript, and modern web technologies.",
+      "tags": [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Node.js"
+      ],
+      "featured": true
+    },
+    {
+      "id": "job2",
+      "title": "Product Manager",
+      "company": "InnovateLab",
+      "rating": 4.6,
+      "teamSize": "100‑500",
+      "location": "Remote",
+      "type": "Full‑time",
+      "salary": "$100k‑$140k",
+      "postedAgo": "1 week ago",
+      "description": "Lead product strategy and development for our AI‑powered analytics platform.",
+      "tags": [
+        "Product Strategy",
+        "Analytics",
+        "Agile",
+        "SQL"
+      ],
+      "featured": true
+    },
+    {
+      "id": "job3",
+      "title": "Data Scientist",
+      "company": "DataCorp",
+      "rating": 4.9,
+      "teamSize": "200‑500",
+      "location": "Austin, TX",
+      "type": "Full‑time",
+      "salary": "$130k‑$170k",
+      "postedAgo": "5 days ago",
+      "description": "Analyze complex datasets and build machine learning models to drive business insights.",
+      "tags": [
+        "Python",
+        "Machine Learning",
+        "SQL",
+        "Statistics"
+      ],
+      "featured": true
+    },
+    {
+      "id": "job4",
+      "title": "UX Designer",
+      "company": "DesignStudio",
+      "rating": 4.7,
+      "teamSize": "100‑300",
+      "location": "New York, NY",
+      "type": "Full‑time",
+      "salary": "$90k‑$120k",
+      "postedAgo": "3 days ago",
+      "description": "Craft intuitive user experiences and high‑fidelity prototypes for our suite of mobile apps.",
+      "tags": [
+        "Figma",
+        "User Research",
+        "Prototyping",
+        "Design Systems"
+      ],
+      "featured": false
+    },
+    {
+      "id": "job5",
+      "title": "DevOps Engineer",
+      "company": "BuildIt",
+      "rating": 4.5,
+      "teamSize": "300‑800",
+      "location": "Chicago, IL",
+      "type": "Full‑time",
+      "salary": "$110k‑$150k",
+      "postedAgo": "4 days ago",
+      "description": "Design and maintain our CI/CD pipelines and cloud infrastructure at scale.",
+      "tags": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Terraform"
+      ],
+      "featured": false
+    }
+  ],
+  "companies": [
+    {
+      "id": "comp1",
+      "name": "TechCorp Inc.",
+      "industry": "Technology",
+      "rating": 4.8,
+      "location": "San Francisco, CA",
+      "size": "1,000+",
+      "openRoles": 45,
+      "tags": [
+        "Remote‑first",
+        "Learning & Development",
+        "Work‑life balance"
+      ]
+    },
+    {
+      "id": "comp2",
+      "name": "InnovateLab",
+      "industry": "AI & Machine Learning",
+      "rating": 4.9,
+      "location": "Remote",
+      "size": "500‑1,000",
+      "openRoles": 23,
+      "tags": [
+        "Innovation",
+        "Diversity & Inclusion",
+        "Flexible hours"
+      ]
+    },
+    {
+      "id": "comp3",
+      "name": "DesignStudio",
+      "industry": "Design & Creative",
+      "rating": 4.7,
+      "location": "New York, NY",
+      "size": "100‑500",
+      "openRoles": 12,
+      "tags": [
+        "Creative freedom",
+        "Mentorship",
+        "Growth mindset"
+      ]
+    },
+    {
+      "id": "comp4",
+      "name": "DataCorp",
+      "industry": "Data & Analytics",
+      "rating": 4.6,
+      "location": "Austin, TX",
+      "size": "200‑500",
+      "openRoles": 18,
+      "tags": [
+        "Data‑driven",
+        "Collaboration",
+        "Impact"
+      ]
+    },
+    {
+      "id": "comp5",
+      "name": "BuildIt",
+      "industry": "Construction Tech",
+      "rating": 4.5,
+      "location": "Chicago, IL",
+      "size": "300‑800",
+      "openRoles": 30,
+      "tags": [
+        "Engineering Excellence",
+        "Sustainability"
+      ]
+    },
+    {
+      "id": "comp6",
+      "name": "FinTechCo",
+      "industry": "Finance Technology",
+      "rating": 4.4,
+      "location": "Boston, MA",
+      "size": "150‑400",
+      "openRoles": 20,
+      "tags": [
+        "Security",
+        "Scalability",
+        "Innovation"
+      ]
+    }
+  ],
+  "resumes": [
+    {
+      "fullName": "Shigee J",
+      "email": "shigee2004@gmail.com",
+      "phone": "08148581706",
+      "summary": "",
+      "experiences": [
+        {
+          "id": 1753189526233,
+          "title": "ux desingner",
+          "company": "google",
+          "from": "2025-11",
+          "to": "2025-12",
+          "description": ""
+        }
+      ],
+      "education": [
+        {
+          "id": 1753189546145,
+          "school": "keswuck",
+          "degree": "btech",
+          "from": "2025-10",
+          "to": "2025-02"
+        }
+      ],
+      "userId": "ae76",
+      "id": "0e33"
+    }
   ]
 }
