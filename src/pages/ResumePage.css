@@ -1,57 +1,91 @@
-.resume-root h2 {
-  color: #0d47a1;
-  margin-bottom: 1rem;
+.resume-content {
+  padding: 2rem;
 }
 
 .section {
-  background: #fff;
-  padding: 1rem 1.5rem;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
 }
 
 .section label {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0.8rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #0d47a1;
 }
 
 .section input,
 .section textarea {
-  margin-top: 0.4rem;
-  padding: 0.6rem;
-  border: 1px solid #ccc;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #bbb;
   border-radius: 4px;
+  margin-top: 0.25rem;
 }
 
-.summary textarea {
-  resize: vertical;
+/* File upload */
+.file-upload input {
+  display: block;
+  margin-top: 0.5rem;
 }
 
-.list-section h3 {
-  margin-bottom: 0.5rem;
-  color: #0d47a1;
+.file-links {
+  margin: 0.75rem 0 1rem;
 }
 
-.list-item {
-  position: relative;
-  padding: 0.8rem;
-  border: 1px solid #dde5f1;
-  margin-bottom: 0.8rem;
-  border-radius: 6px;
-  background: #fafbfc;
+.view-btn,
+.remove-btn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.view-btn:hover {
+  background: #155fa0;
 }
 
 .remove-btn {
+  background: #e53935;
+}
+
+.remove-btn:hover {
+  background: #b71c1c;
+}
+
+/* Inline PDF preview */
+.pdf-preview {
+  margin-top: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* List sections */
+.list-section .list-item {
+  position: relative;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.list-section .list-item .remove-btn {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  background: none;
-  border: none;
-  color: #c62828;
-  cursor: pointer;
-  font-size: 1rem;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.list-section input,
+.list-section textarea {
+  width: 100%;
+  padding: 0.4rem;
+  margin: 0.4rem 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .dates {
@@ -61,46 +95,172 @@
   margin: 0.5rem 0;
 }
 
+/* Add buttons */
 .add-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  background: #1976d2;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 0.8rem;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 0.5rem;
-}
-
-.save-btn {
-  margin-top: 1.5rem;
   background: #388e3c;
   color: #fff;
   border: none;
-  padding: 0.8rem 1.2rem;
-  border-radius: 5px;
+  padding: 0.4rem 0.8rem;
   cursor: pointer;
-  font-size: 1rem;
+  border-radius: 4px;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.25rem;
 }
-.preview-btn {
-  margin-left: 1rem;
-  background: #0288d1;
+
+.add-btn:hover {
+  background: #2e7d32;
+}
+
+/* Save & Delete row */
+.actions-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.save-btn,
+.delete-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.save-btn {
+  background: #1976d2;
   color: #fff;
+}
+
+.save-btn:hover {
+  background: #155fa0;
+}
+
+.delete-btn {
+  background: #b71c1c;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background: #9a0007;
+}
+
+/* ===========================
+   ResumePage.css additions
+   =========================== */
+
+.actions-row {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  align-items: center;
+}
+
+.preview-btn {
+  background: #1976d2;
+  color: white;
   border: none;
   padding: 0.6rem 1rem;
   border-radius: 4px;
   cursor: pointer;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
-.preview-btn:hover {
-  background: #0277bd;
+
+.resume-template {
+  margin-top: 3rem;
+  padding: 2rem;
+  border-top: 2px solid #1976d2;
+  background: #fafafa;
+  border-radius: 6px;
 }
+
+.template-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.template-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #0d47a1;
+}
+
+.template-header p {
+  margin: 0.25rem 0 0;
+  color: #555;
+}
+
+.template-section {
+  margin-bottom: 1.5rem;
+}
+
+.template-section h3 {
+  margin-bottom: 0.5rem;
+  color: #0d47a1;
+}
+
+.resume-item {
+  margin-bottom: 1rem;
+}
+
+.resume-item .dates {
+  display: block;
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0.25rem 0;
+}
+
+.pdf-preview iframe {
+  border-radius: 4px;
+}
+.actions-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.preview-btn {
+  background: #0288d1;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.resume-template {
+  margin-top: 2rem;
+  padding: 2rem;
+  border-top: 2px solid #0288d1;
+  background: #f5faff;
+  border-radius: 6px;
+}
+
+.template-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.template-section {
+  margin-bottom: 1rem;
+}
+
+.template-section h3 {
+  color: #0288d1;
+  margin-bottom: 0.25rem;
+}
+
+
+
 
 

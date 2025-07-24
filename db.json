@@ -20,103 +20,42 @@
       "email": "arun@gmail.com",
       "password": "1234567890",
       "role": "jobseeker"
+    },
+    {
+      "id": "e497",
+      "fullName": "shinchan",
+      "email": "shincahn@gmail.com",
+      "password": "1234567890",
+      "role": "employer"
+    },
+    {
+      "id": "076f",
+      "fullName": "shashank",
+      "email": "shashank@gmail.com",
+      "password": "1234",
+      "role": "employer"
     }
   ],
   "jobs": [
     {
-      "id": "job1",
       "title": "Senior Frontend Developer",
       "company": "TechCorp Inc.",
-      "rating": 4.8,
-      "teamSize": "500‑1000",
       "location": "San Francisco, CA",
       "type": "Full‑time",
-      "salary": "$120k‑$160k",
-      "postedAgo": "2 days ago",
       "description": "Join our team to build cutting‑edge web applications using React, TypeScript, and modern web technologies.",
-      "tags": [
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "Node.js"
-      ],
-      "featured": true
+      "featured": true,
+      "postedAgo": "2 days ago",
+      "id": "job1"
     },
     {
-      "id": "job2",
-      "title": "Product Manager",
-      "company": "InnovateLab",
-      "rating": 4.6,
-      "teamSize": "100‑500",
-      "location": "Remote",
-      "type": "Full‑time",
-      "salary": "$100k‑$140k",
-      "postedAgo": "1 week ago",
-      "description": "Lead product strategy and development for our AI‑powered analytics platform.",
-      "tags": [
-        "Product Strategy",
-        "Analytics",
-        "Agile",
-        "SQL"
-      ],
-      "featured": true
-    },
-    {
-      "id": "job3",
-      "title": "Data Scientist",
-      "company": "DataCorp",
-      "rating": 4.9,
-      "teamSize": "200‑500",
-      "location": "Austin, TX",
-      "type": "Full‑time",
-      "salary": "$130k‑$170k",
-      "postedAgo": "5 days ago",
-      "description": "Analyze complex datasets and build machine learning models to drive business insights.",
-      "tags": [
-        "Python",
-        "Machine Learning",
-        "SQL",
-        "Statistics"
-      ],
-      "featured": true
-    },
-    {
-      "id": "job4",
-      "title": "UX Designer",
-      "company": "DesignStudio",
-      "rating": 4.7,
-      "teamSize": "100‑300",
-      "location": "New York, NY",
-      "type": "Full‑time",
-      "salary": "$90k‑$120k",
-      "postedAgo": "3 days ago",
-      "description": "Craft intuitive user experiences and high‑fidelity prototypes for our suite of mobile apps.",
-      "tags": [
-        "Figma",
-        "User Research",
-        "Prototyping",
-        "Design Systems"
-      ],
-      "featured": false
-    },
-    {
-      "id": "job5",
-      "title": "DevOps Engineer",
-      "company": "BuildIt",
-      "rating": 4.5,
-      "teamSize": "300‑800",
-      "location": "Chicago, IL",
-      "type": "Full‑time",
-      "salary": "$110k‑$150k",
-      "postedAgo": "4 days ago",
-      "description": "Design and maintain our CI/CD pipelines and cloud infrastructure at scale.",
-      "tags": [
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "Terraform"
-      ],
-      "featured": false
+      "title": "software developer",
+      "company": "hexaware",
+      "location": "chennai",
+      "type": "Full-time",
+      "description": "coding skills (Java)",
+      "featured": false,
+      "postedAgo": "",
+      "id": "5b76"
     }
   ],
   "companies": [
@@ -204,33 +143,117 @@
       ]
     }
   ],
+  "profiles": [
+    {
+      "fullName": "shashank",
+      "email": "shashank@gmailcom",
+      "phone": "8148581246",
+      "dob": "2005-07-27",
+      "education": {
+        "tenth": {
+          "school": "keswick public school",
+          "year": "2020",
+          "marks": "91.16"
+        },
+        "twelfth": {
+          "school": "keswick",
+          "year": "2022",
+          "marks": "91.8"
+        },
+        "college": {
+          "name": "st.josehs",
+          "year": "2027",
+          "marks": "89"
+        }
+      },
+      "skills": [
+        "css html java js"
+      ],
+      "certifications": [
+        "aws azurw"
+      ],
+      "internships": [
+        {
+          "id": 1753253873552,
+          "company": "google",
+          "role": "developer",
+          "from": "",
+          "to": "",
+          "description": ""
+        }
+      ],
+      "userId": "ae76",
+      "id": "52c5"
+    }
+  ],
   "resumes": [
     {
-      "fullName": "Shigee J",
+      "fullName": "shigee",
       "email": "shigee2004@gmail.com",
-      "phone": "08148581706",
+      "phone": "12345678",
+      "summary": "",
+      "experiences": [],
+      "education": [],
+      "resumeFile": null,
+      "userId": "ae76",
+      "id": "9f0f"
+    },
+    {
+      "fullName": "",
+      "email": "",
+      "phone": "",
       "summary": "",
       "experiences": [
         {
-          "id": 1753189526233,
-          "title": "ux desingner",
-          "company": "google",
-          "from": "2025-11",
-          "to": "2025-12",
+          "id": 1753271188703,
+          "title": "",
+          "company": "",
+          "from": "",
+          "to": "",
           "description": ""
         }
       ],
       "education": [
         {
-          "id": 1753189546145,
-          "school": "keswuck",
-          "degree": "btech",
-          "from": "2025-10",
-          "to": "2025-02"
+          "id": 1753271188704,
+          "school": "",
+          "degree": "",
+          "from": "",
+          "to": ""
         }
       ],
-      "userId": "ae76",
-      "id": "0e33"
+      "resumeFile": null,
+      "userId": "e497",
+      "id": "bfe0"
+    },
+    {
+      "fullName": "",
+      "email": "",
+      "phone": "",
+      "summary": "",
+      "experiences": [
+        {
+          "id": 1753272237475,
+          "title": "",
+          "company": "",
+          "from": "",
+          "to": "",
+          "description": ""
+        }
+      ],
+      "education": [
+        {
+          "id": 1753272237476,
+          "school": "",
+          "degree": "",
+          "from": "",
+          "to": ""
+        }
+      ],
+      "resumeFile": null,
+      "userId": "7644",
+      "id": "3a35"
     }
-  ]
+  ],
+  "applications": []
 }

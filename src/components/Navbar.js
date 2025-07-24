@@ -32,8 +32,7 @@ export default function Navbar({
         <button onClick={toggleTheme} style={styles.iconBtn}>
           {darkMode ? <FiSun size={20}/> : <FiMoon size={20}/>}
         </button>
-        <Link to="/profile"    style={styles.iconBtn}><FiUser size={20}/></Link>
-        <Link to="/settings"   style={styles.iconBtn}><FiSettings size={20}/></Link>
+        
         <button onClick={handleLogout} style={styles.logoutBtn}>
           Log Out
         </button>
@@ -44,6 +43,10 @@ export default function Navbar({
 
 const styles = {
   nav: {
+    position: 'fixed',         // pin it
+    top: 0,                    // to the very top
+    left: 0,
+    right: 0,
     height: '60px',
     background: '#ffffff',
     display: 'flex',
@@ -51,8 +54,8 @@ const styles = {
     justifyContent: 'space-between',
     padding: '0 1rem',
     boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-    zIndex: 1000,
-    position: 'relative'
+    zIndex: 1100,              // sit above everything
+    boxSizing: 'border-box'
   },
   left: {
     display: 'flex',
@@ -93,6 +96,8 @@ const styles = {
     fontFamily: 'Segoe UI, sans-serif',
   }
 };
+
+
 
 
 

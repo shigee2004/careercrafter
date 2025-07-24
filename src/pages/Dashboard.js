@@ -42,6 +42,7 @@ export default function Dashboard() {
       <Sidebar
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
+        role="jobseeker"
       />
 
       {/* Hero */}
@@ -111,6 +112,7 @@ export default function Dashboard() {
     </div>
   );
 }
+
 
 
 

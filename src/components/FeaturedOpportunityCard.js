@@ -1,3 +1,4 @@
+// src/components/FeaturedOpportunityCard.js
 import React from 'react';
 import {
   FaBuilding,
@@ -11,6 +12,9 @@ import {
 import './FeaturedOpportunityCard.css';
 
 export default function FeaturedOpportunityCard({ job }) {
+  // fall back to an empty array if job.tags is missing or not an array
+  const tags = Array.isArray(job.tags) ? job.tags : [];
+
   return (
     <div className="feat-card">
       {/* Left side: logo, title, badge, bookmark */}
@@ -45,7 +49,7 @@ export default function FeaturedOpportunityCard({ job }) {
         <p className="feat-desc">{job.description}</p>
 
         <div className="feat-tags">
-          {job.tags.map((t, i) => (
+          {tags.map((t, i) => (
             <span key={i} className="feat-tag">
               {t}
             </span>
@@ -61,4 +65,5 @@ export default function FeaturedOpportunityCard({ job }) {
     </div>
   );
 }
+
 

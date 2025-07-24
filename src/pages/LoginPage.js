@@ -1,3 +1,4 @@
+// src/pages/LoginPage.js
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../api/userApi';  // our GET /users?email... helper
@@ -12,19 +13,32 @@ export default function LoginPage() {
   const handleSubmit = async e => {
     e.preventDefault();
     setError('');
+
     try {
       const res = await loginUser({ email, password, role });
       const users = res.data;
-      if (users.length) {
-        // success!
-        localStorage.setItem('token', users[0].id);
-        navigate('/dashboard');
-      } else {
+
+      if (!users.length) {
         setError('Invalid email/password/role');
+        return;
       }
+
+      const user = users[0];
+      // persist whatever token you have; here we'll save their ID + role
+      localStorage.setItem('token', user.id);
+      localStorage.setItem('userId', user.id);
+      localStorage.setItem('role', user.role);
+
+      // *** NAVIGATION TWEAK FOR EMPLOYERS ***
+      if (user.role === 'employer') {
+        navigate('/employer/select', { replace: true });
+      } else {
+        navigate('/dashboard', { replace: true });
+      }
+
     } catch (err) {
       console.error(err);
-      setError('Server error, try again later');
+      setError('Server error, please try again later');
     }
   };
 
@@ -33,6 +47,7 @@ export default function LoginPage() {
       <div style={styles.card}>
         <h2 style={styles.heading}>CareerCrafter Login</h2>
         <form onSubmit={handleSubmit} style={styles.form}>
+
           <input
             type="email"
             placeholder="Email"
@@ -41,6 +56,7 @@ export default function LoginPage() {
             required
             style={styles.input}
           />
+
           <input
             type="password"
             placeholder="Password"
@@ -49,13 +65,14 @@ export default function LoginPage() {
             required
             style={styles.input}
           />
+
           <select
             value={role}
             onChange={e => setRole(e.target.value)}
             style={styles.select}
           >
-            <option value="employer">Employer</option>
             <option value="jobseeker">Job Seeker</option>
+            <option value="employer">Employer</option>
           </select>
 
           {error && <p style={styles.error}>{error}</p>}
@@ -64,6 +81,7 @@ export default function LoginPage() {
             Log In
           </button>
         </form>
+
         <p style={styles.signupText}>
           Don’t have an account?{' '}
           <Link to="/register" style={styles.link}>
@@ -127,6 +145,8 @@ const styles = {
   },
   signupText: { marginTop: '1.25rem', fontSize: '0.9rem', color: '#555' },
   link: { color: '#00796b', textDecoration: 'none', fontWeight: '600' },
+  error: { color: 'red', marginBottom: '1rem' }
 };
+
 
 

@@ -1,0 +1,84 @@
+/* src/pages/ProfilePage.css */
+.profile-content {
+  padding: 2rem;
+}
+.section {
+  margin-bottom: 2rem;
+}
+.section label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #0d47a1;
+}
+.section input,
+.section textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  margin-top: 0.25rem;
+}
+.list-section .edu-group,
+.list-section .list-item {
+  position: relative;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+.list-section h4 {
+  margin-bottom: 0.5rem;
+  color: #1565c0;
+}
+.tag-input {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.tag-input input {
+  flex: 1;
+}
+.remove-btn {
+  background: #e53935;
+  color: #fff;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.add-btn {
+  background: #388e3c;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.save-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.dates {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+.status-msg {
+  margin-bottom: 1rem;
+  color: green;
+}
+

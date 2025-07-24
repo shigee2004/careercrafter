@@ -1,0 +1,28 @@
+.view-resume-content {
+  padding: 2rem;
+}
+.resume-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #0d47a1;
+}
+.resume-header p {
+  margin: 0.25rem 0 1.5rem;
+  color: #555;
+}
+.resume-section {
+  margin-bottom: 2rem;
+}
+.resume-section h2 {
+  border-bottom: 2px solid #1976d2;
+  padding-bottom: 0.25rem;
+  color: #1976d2;
+}
+.resume-item {
+  margin: 1rem 0;
+}
+.resume-item .dates {
+  display: block;
+  font-size: 0.9rem;
+  color: #777;
+}

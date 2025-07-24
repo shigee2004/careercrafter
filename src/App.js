@@ -7,26 +7,33 @@ import {
   Navigate
 } from 'react-router-dom';
 
-import LoginPage      from './pages/LoginPage';
-import RegisterPage   from './pages/RegisterPage';
-import Dashboard      from './pages/Dashboard';
-import ProfilePage    from './pages/ProfilePage';
-import ResumePage     from './pages/ResumePage';
-import ViewResumePage from './pages/ViewResumePage';
-import ResumePreview  from './pages/ResumePreview';
+import LoginPage           from './pages/LoginPage';
+import RegisterPage        from './pages/RegisterPage';
+import Dashboard           from './pages/Dashboard';
+import ProfilePage         from './pages/ProfilePage';
+import ResumePage          from './pages/ResumePage';
+import ViewResumePage      from './pages/ViewResumePage';
+import EmployerDashboard   from './pages/EmployerDashboard';
+import EmployerSelectLogin from './pages/EmployerSelectLogin';
+
+// ───── Employer feature pages ─────
+import PostJob             from './components/employer/PostJob';
+import ManageJobs          from './components/employer/ManageJobs';
+
+import ViewApplications    from './components/employer/ViewApplications';
 
 function PrivateRoute({ children }) {
   const auth = Boolean(localStorage.getItem('token'));
   return auth ? children : <Navigate to="/login" replace />;
 }
 
-function App() {
+export default function App() {
   const auth = Boolean(localStorage.getItem('token'));
 
   return (
     <Router>
       <Routes>
-        {/* root: send logged‑in folks to /dashboard, others to /login */}
+        {/* root */}
         <Route
           path="/"
           element={
@@ -36,72 +43,65 @@ function App() {
           }
         />
 
-        {/* login/register are public */}
+        {/* auth */}
         <Route
           path="/login"
-          element={
-            auth ? <Navigate to="/dashboard" replace /> : <LoginPage />
-          }
+          element={auth ? <Navigate to="/dashboard" replace /> : <LoginPage />}
         />
         <Route
           path="/register"
-          element={
-            auth ? <Navigate to="/dashboard" replace /> : <RegisterPage />
-          }
+          element={auth ? <Navigate to="/dashboard" replace /> : <RegisterPage />}
         />
 
-        {/* protected: dashboard + profile */}
+        {/* job‑seeker */}
         <Route
           path="/dashboard"
-          element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          }
+          element={<PrivateRoute><Dashboard /></PrivateRoute>}
         />
         <Route
           path="/profile"
-          element={
-            <PrivateRoute>
-              <ProfilePage />
-            </PrivateRoute>
-          }
+          element={<PrivateRoute><ProfilePage /></PrivateRoute>}
         />
-
-        {/* resume list, edit & preview */}
         <Route
           path="/resume"
-          element={
-            <PrivateRoute>
-              <ResumePage />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/resume/preview"
-          element={
-            <PrivateRoute>
-              <ResumePreview />
-            </PrivateRoute>
-          }
+          element={<PrivateRoute><ResumePage /></PrivateRoute>}
         />
         <Route
           path="/resume/:id"
-          element={
-            <PrivateRoute>
-              <ViewResumePage />
-            </PrivateRoute>
-          }
+          element={<PrivateRoute><ViewResumePage /></PrivateRoute>}
         />
 
-        {/* catch‑all */}
+        {/* employer */}
+        <Route
+          path="/employer"
+          element={<PrivateRoute><EmployerDashboard /></PrivateRoute>}
+        />
+        <Route
+          path="/employer/post"
+          element={<PrivateRoute><PostJob /></PrivateRoute>}
+        />
+        <Route
+          path="/employer/manage"
+          element={<PrivateRoute><ManageJobs /></PrivateRoute>}
+        />
+        
+        <Route
+          path="/employer/apps"
+          element={<PrivateRoute><ViewApplications /></PrivateRoute>}
+        />
+        {/* after initial employer-login we hit this select page */}
+        <Route path="/employer/select" element={
+        <PrivateRoute><EmployerSelectLogin/></PrivateRoute>}
+        />
+
+        {/* fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );
 }
 
-export default App;
+
 
 
 
