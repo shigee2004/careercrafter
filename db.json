@@ -56,6 +56,41 @@
       "featured": false,
       "postedAgo": "",
       "id": "5b76"
+    },
+    {
+      "title": "desinger",
+      "location": "banglore",
+      "type": "Full-time",
+      "description": "communication",
+      "postedAgo": "",
+      "id": "3bbb"
+    },
+    {
+      "id": "b387",
+      "title": "ux designer",
+      "workplaceType": "On-site",
+      "location": "tamilnadu",
+      "type": "Full-time",
+      "description": "creativity",
+      "featured": true
+    },
+    {
+      "id": "bbae",
+      "title": "web devoloper",
+      "workplaceType": "Remote",
+      "location": "chennai",
+      "type": "Internship",
+      "description": "good skilles in javascript,react and node.js",
+      "featured": true
+    },
+    {
+      "id": "3f97",
+      "title": "web devoloper",
+      "workplaceType": "On-site",
+      "location": "chennai",
+      "type": "Full-time",
+      "salary": "80k-100k",
+      "description": "good communication"
     }
   ],
   "companies": [
@@ -227,17 +262,17 @@
       "id": "bfe0"
     },
     {
-      "fullName": "",
-      "email": "",
-      "phone": "",
+      "fullName": "Shigee J",
+      "email": "shigee2004@gmail.com",
+      "phone": "08148581706",
       "summary": "",
       "experiences": [
         {
           "id": 1753272237475,
-          "title": "",
-          "company": "",
+          "title": "devlper",
+          "company": "2/73 north street athalai",
           "from": "",
-          "to": "",
+          "to": "2025-12",
           "description": ""
         }
       ],
@@ -255,5 +290,28 @@
       "id": "3a35"
     }
   ],
-  "applications": []
+  "applications": [
+    {
+      "id": "f203",
+      "jobId": "job1",
+      "companyId": "comp1",
+      "userId": "7644",
+      "candidateName": "Shigee J",
+      "candidateEmail": "shigee2004@gmail.com",
+      "candidatePhone": "08148581706",
+      "resumeFileName": "resume.pdf",
+      "coverLetter": ""
+    },
+    {
+      "id": "0036",
+      "jobId": "job1",
+      "companyId": "comp1",
+      "userId": "7644",
+      "candidateName": "shigee",
+      "candidateEmail": "shigee2004@gmail.com",
+      "candidatePhone": "12345678",
+      "resumeFileName": "",
+      "coverLetter": ""
+    }
+  ]
 }

@@ -1,4 +1,4 @@
-/* src/components/employer/postjob.css */
+/* src/components/employer/PostJob.css */
 .post-job-container {
   display: flex;
   justify-content: center;
@@ -58,4 +58,28 @@
 .post-job-form button:hover {
   background: #0069d9;
 }
+
+/* ——— Featured checkbox tweaks ——— */
+.featured-checkbox {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #555;
+}
+
+.featured-checkbox input[type="checkbox"] {
+  margin-right: 0.5rem;
+  width: 18px;
+  height: 18px;
+  /* gives a blue accent in modern browsers */
+  accent-color: #007bff;
+}
+.featured-checkbox input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 0.75rem;
+}
+
+
 

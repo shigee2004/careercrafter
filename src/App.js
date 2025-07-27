@@ -15,6 +15,7 @@ import ResumePage          from './pages/ResumePage';
 import ViewResumePage      from './pages/ViewResumePage';
 import EmployerDashboard   from './pages/EmployerDashboard';
 import EmployerSelectLogin from './pages/EmployerSelectLogin';
+import ApplyJobPage  from './pages/ApplyJobPage';
 
 // ───── Employer feature pages ─────
 import PostJob             from './components/employer/PostJob';
@@ -93,6 +94,10 @@ export default function App() {
         <Route path="/employer/select" element={
         <PrivateRoute><EmployerSelectLogin/></PrivateRoute>}
         />
+        <Route path="/apply/:jobId" element={
+          <PrivateRoute><ApplyJobPage/></PrivateRoute>}
+        />
+
 
         {/* fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />

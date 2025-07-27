@@ -1,0 +1,69 @@
+/* container for the list */
+.applications-list {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+
+/* each card */
+.application-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* left section: name/job/summary */
+.app-info {
+  max-width: 75%;
+}
+
+.candidate-name {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #0d47a1;
+}
+
+.job-title {
+  margin: 0.25rem 0;
+  color: #555;
+}
+
+.candidate-summary {
+  margin: 0.5rem 0 0;
+  color: #333;
+}
+
+/* "View Resume" button */
+.btn-view-resume {
+  background: #1976d2;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.btn-view-resume:hover {
+  background: #1565c0;
+}
+
+/* empty state */
+.empty-msg {
+  color: #777;
+  font-style: italic;
+  margin-top: 2rem;
+}
+
+/* page header override if needed */
+.page-header {
+  margin-top: 0;
+}
+
+
+
+

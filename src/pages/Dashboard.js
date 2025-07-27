@@ -17,6 +17,10 @@ export default function Dashboard() {
   const [loadingCompanies, setLoadingCompanies] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  // SEARCH STATES
+  const [search, setSearch] = useState('');
+  const [searchLoc, setSearchLoc] = useState('');
+
   // fetch jobs
   useEffect(() => {
     axios.get('http://localhost:8000/jobs')
@@ -32,6 +36,18 @@ export default function Dashboard() {
       .catch(console.error)
       .finally(() => setLoadingCompanies(false));
   }, []);
+
+  // Search filter logic
+  const filteredJobs = jobs.filter(j =>
+    (
+      j.title.toLowerCase().includes(search.toLowerCase()) ||
+      (j.company || '').toLowerCase().includes(search.toLowerCase())
+    ) &&
+    (
+      searchLoc.trim() === '' ||
+      (j.location || '').toLowerCase().includes(searchLoc.toLowerCase())
+    )
+  );
 
   return (
     <div className="dashboard-root">
@@ -52,9 +68,17 @@ export default function Dashboard() {
         </h1>
         <p>Connect with top employers and discover opportunities that match your ambitions</p>
         <div className="search-bar">
-          <input placeholder="Job title, keywords, or company" />
-          <input placeholder="City, state, or remote" />
-          <button>Search Jobs</button>
+          <input
+            placeholder="Job title, keywords, or company"
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+          />
+          <input
+            placeholder="City, state, or remote"
+            value={searchLoc}
+            onChange={e => setSearchLoc(e.target.value)}
+          />
+          <button disabled>Search Jobs</button>
         </div>
       </section>
 
@@ -75,7 +99,6 @@ export default function Dashboard() {
         }}
       >
         <main className="dashboard-main">
-          
           {/* Featured Opportunities */}
           <div className="section-header">
             <h2>Featured Opportunities</h2>
@@ -84,14 +107,12 @@ export default function Dashboard() {
 
           {loadingJobs ? (
             <p>Loading jobs…</p>
-          ) : jobs.filter(j => j.featured).length === 0 ? (
-            <p>No featured jobs found.</p>
+          ) : filteredJobs.length === 0 ? (
+            <p>No jobs found.</p>
           ) : (
-            jobs
-              .filter(j => j.featured)
-              .map(j => (
-                <FeaturedOpportunityCard key={j.id} job={j} />
-              ))
+            filteredJobs.map(j => (
+              <FeaturedOpportunityCard key={j.id} job={j} />
+            ))
           )}
 
           {/* Explore Top Companies */}
@@ -112,6 +133,8 @@ export default function Dashboard() {
     </div>
   );
 }
+
+
 
 
 

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Sidebar from '../../components/Sidebar';
-import { createJob } from '../../api/jobApi';  // ← added
+import { createJob } from '../../api/jobApi';
 import './PostJob.css';
 
 const SIDEBAR_WIDTH = 220;
@@ -14,21 +14,33 @@ export default function PostJob() {
     workplaceType: '',
     location: '',
     type: '',
-    description: ''
+    description: '',
+    featured: false
   });
 
   const handleChange = e => {
-    setForm(f => ({ ...f, [e.target.name]: e.target.value }));
+    const { name, value, type, checked } = e.target;
+    setForm(f => ({
+      ...f,
+      [name]: type === 'checkbox' ? checked : value
+    }));
   };
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    createJob(form)                             // ← call your API
+    createJob(form)
       .then(res => {
         alert('Job posted successfully!');
-        // reset form if you like:
-        setForm({ title:'', workplaceType:'', location:'', type:'', description:'' });
+        // reset to blank
+        setForm({
+          title: '',
+          workplaceType: '',
+          location: '',
+          type: '',
+          description: '',
+          featured: false
+        });
       })
       .catch(err => {
         console.error(err);
@@ -41,7 +53,7 @@ export default function PostJob() {
       <Navbar onMenuClick={() => setSidebarOpen(o => !o)} />
       <Sidebar
         isOpen={sidebarOpen}
-        onClose={()=>setSidebarOpen(false)}
+        onClose={() => setSidebarOpen(false)}
         role="employer"
       />
 
@@ -61,6 +73,7 @@ export default function PostJob() {
                   name="title"
                   value={form.title}
                   onChange={handleChange}
+                  required
                 />
               </label>
 
@@ -70,6 +83,7 @@ export default function PostJob() {
                   name="workplaceType"
                   value={form.workplaceType}
                   onChange={handleChange}
+                  required
                 >
                   <option value="">Select</option>
                   <option>Remote</option>
@@ -84,6 +98,7 @@ export default function PostJob() {
                   name="location"
                   value={form.location}
                   onChange={handleChange}
+                  required
                 />
               </label>
 
@@ -93,6 +108,7 @@ export default function PostJob() {
                   name="type"
                   value={form.type}
                   onChange={handleChange}
+                  required
                 >
                   <option value="">Select</option>
                   <option>Full-time</option>
@@ -102,16 +118,39 @@ export default function PostJob() {
               </label>
 
               <label>
+                Salary Range:
+                <input
+                  name="salary"                  // ← NEW
+                  placeholder="e.g. 80k‑100k"  // ← NEW
+                  value={form.salary}
+                  onChange={handleChange}
+                />
+              </label>
+
+              <label>
                 Requirements:
                 <textarea
                   name="description"
                   rows={4}
                   value={form.description}
                   onChange={handleChange}
+                  required
                 />
               </label>
 
-              <button type="submit">Post Job</button>
+              <label className="featured-checkbox">
+                <input
+                  type="checkbox"
+                  name="featured"
+                  checked={form.featured}
+                  onChange={handleChange}
+                />
+                Mark as Featured
+              </label>
+
+              <button type="submit" className="post-btn">
+                Post Job
+              </button>
             </form>
           </div>
         </div>
@@ -119,4 +158,5 @@ export default function PostJob() {
     </div>
   );
 }
+
 

@@ -1,5 +1,6 @@
 // src/components/FeaturedOpportunityCard.js
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   FaBuilding,
   FaStar,
@@ -12,7 +13,8 @@ import {
 import './FeaturedOpportunityCard.css';
 
 export default function FeaturedOpportunityCard({ job }) {
-  // fall back to an empty array if job.tags is missing or not an array
+  const navigate = useNavigate();
+  // ensure tags is always an array
   const tags = Array.isArray(job.tags) ? job.tags : [];
 
   return (
@@ -59,11 +61,18 @@ export default function FeaturedOpportunityCard({ job }) {
 
       {/* Right side: action buttons */}
       <div className="feat-card-right">
-        <button className="btn-apply">Apply Now</button>
+        <button
+          className="btn-apply"
+          onClick={() => navigate(`/apply/${job.id}`)}
+        >
+          Apply Now
+        </button>
         <button className="btn-details">View Details</button>
       </div>
     </div>
   );
 }
+
+
 
 
