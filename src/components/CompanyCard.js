@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fa';
 import './CompanyCard.css';
 
-export default function CompanyCard({ company, jobsPosted }) {
+export default function CompanyCard({ company, jobsPosted, onViewJobs }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -51,7 +51,10 @@ export default function CompanyCard({ company, jobsPosted }) {
 
         {/* Actions */}
         <div className="company-actions">
-          <button className="btn-view">
+          <button
+            className="btn-view"
+            onClick={onViewJobs}
+          >
             View Jobs ({jobsPosted || company.openRoles})
           </button>
           <button className="btn-profile" onClick={() => setShowModal(true)}>
@@ -129,6 +132,7 @@ export default function CompanyCard({ company, jobsPosted }) {
     </>
   );
 }
+
 
 
 

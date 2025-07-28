@@ -49,10 +49,21 @@ export default function ApplyJobPage() {
     setForm(f => ({ ...f, resumeFileName: file?.name || '' }));
   };
 
+  // Validation: true if any field is empty
+  const isFormIncomplete =
+    !form.candidateName ||
+    !form.candidateEmail ||
+    !form.candidatePhone ||
+    !form.coverLetter ||
+    !form.resumeFileName;
+
   const handleSubmit = e => {
     e.preventDefault();
     const companyId = localStorage.getItem('companyId');
     const userId = localStorage.getItem('userId');
+
+    // Double check in case user disables button by DOM hacks
+    if (isFormIncomplete) return;
 
     createApplication({
       jobId,
@@ -122,17 +133,33 @@ export default function ApplyJobPage() {
                   value={form.coverLetter}
                   onChange={handleChange}
                   rows={4}
+                  required
                 />
               </label>
               <label>
                 Attach Resume (just capturing filename)
-                <input type="file" onChange={handleFile} />
+                <input type="file" onChange={handleFile} required />
                 {form.resumeFileName && (
                   <small>Uploaded: {form.resumeFileName}</small>
                 )}
               </label>
 
-              <button type="submit" className="btn-submit">
+              <button
+                type="submit"
+                className="btn-submit"
+                disabled={isFormIncomplete}
+                style={{
+                  background: isFormIncomplete ? '#90caf9' : '#0066ff',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: 7,
+                  padding: '13px 0',
+                  marginTop: 16,
+                  fontSize: 17,
+                  cursor: isFormIncomplete ? 'not-allowed' : 'pointer',
+                  fontWeight: 600
+                }}
+              >
                 Send Application
               </button>
             </form>
@@ -142,4 +169,5 @@ export default function ApplyJobPage() {
     </div>
   );
 }
+
 

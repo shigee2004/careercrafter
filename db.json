@@ -24,7 +24,7 @@
     {
       "id": "e497",
       "fullName": "shinchan",
-      "email": "shincahn@gmail.com",
+      "email": "shinchan@gmail.com",
       "password": "1234567890",
       "role": "employer"
     },
@@ -60,6 +60,18 @@
       "featured": true,
       "postedAt": "2025-07-28T12:30:51.952Z",
       "company": "TechCorp Inc."
+    },
+    {
+      "id": "71f5",
+      "title": "data scientist",
+      "workplaceType": "Remote",
+      "location": "Hyderabad",
+      "type": "Full-time",
+      "salary": "60k-70k",
+      "description": "PowerBi specialist",
+      "featured": true,
+      "postedAt": "2025-07-28T16:42:54.095Z",
+      "company": "TechCorp Inc."
     }
   ],
   "companies": [
@@ -75,7 +87,9 @@
         "Remote‑first",
         "Learning & Development",
         "Work‑life balance"
-      ]
+      ],
+      "domain": "techcorp.com",
+      "password": "letmein123"
     }
   ],
   "profiles": [
@@ -242,6 +256,19 @@
       "coverLetter": "",
       "status": "Rejected",
       "notified": true
+    },
+    {
+      "id": "35e9",
+      "jobId": "71f5",
+      "companyId": "comp1",
+      "userId": "7644",
+      "candidateName": "shigee",
+      "candidateEmail": "shigee2004@gmail.com",
+      "candidatePhone": "12345678",
+      "resumeFileName": "resume.pdf",
+      "coverLetter": "blablahblahh",
+      "status": "Shortlisted",
+      "notified": false
     }
   ]
 }

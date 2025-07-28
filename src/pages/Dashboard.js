@@ -1,4 +1,3 @@
-// src/pages/Dashboard.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaFilter, FaBell } from 'react-icons/fa';
@@ -28,6 +27,10 @@ export default function Dashboard() {
   // FILTER MODAL STATE
   const [filterOpen, setFilterOpen] = useState(false);
   const [reqFilter, setReqFilter] = useState('');
+
+  // View Jobs Modal State
+  const [showJobsModal, setShowJobsModal] = useState(false);
+  const [selectedCompany, setSelectedCompany] = useState(null);
 
   // fetch jobs
   useEffect(() => {
@@ -120,6 +123,12 @@ export default function Dashboard() {
   // Show only companies who have posted jobs
   const companiesWithJobs = companies.filter(c => jobsPerCompany[c.name]);
 
+  // ----- View Jobs handler -----
+  function handleViewJobs(companyName) {
+    setSelectedCompany(companyName);
+    setShowJobsModal(true);
+  }
+
   // Helper: Modal for filter
   function FilterModal({ open, onClose }) {
     if (!open) return null;
@@ -175,6 +184,72 @@ export default function Dashboard() {
               >Clear</button>
             )}
           </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Modal to show jobs for a selected company
+  function ViewJobsModal({ open, companyName, onClose }) {
+    if (!open || !companyName) return null;
+    const companyJobs = jobs.filter(j => j.company === companyName);
+    return (
+      <div
+        style={{
+          position: 'fixed',
+          left: 0,
+          top: 0,
+          width: '100vw',
+          height: '100vh',
+          background: 'rgba(80,100,120,0.18)',
+          zIndex: 120,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+        onClick={onClose}
+      >
+        <div
+          style={{
+            background: '#fff',
+            borderRadius: 14,
+            padding: 32,
+            minWidth: 370,
+            maxWidth: 520,
+            maxHeight: '80vh',
+            overflowY: 'auto',
+            boxShadow: '0 4px 32px rgba(0,0,0,0.15)',
+            position: 'relative'
+          }}
+          onClick={e => e.stopPropagation()}
+        >
+          <button
+            onClick={onClose}
+            style={{
+              position: 'absolute',
+              right: 18,
+              top: 14,
+              fontSize: 22,
+              border: 'none',
+              background: 'none',
+              cursor: 'pointer'
+            }}
+            aria-label="Close"
+          >×</button>
+          <h2 style={{ margin: '0 0 18px 0' }}>{companyName} - Jobs</h2>
+          {companyJobs.length === 0 ? (
+            <p>No jobs posted by this company.</p>
+          ) : (
+            companyJobs.map(job => (
+              <div key={job.id} style={{ marginBottom: 24, borderBottom: '1px solid #eee', paddingBottom: 12 }}>
+                <strong>{job.title}</strong>
+                <div style={{ color: '#555', margin: '4px 0' }}>
+                  {job.location} | {job.type} | {job.salary}
+                </div>
+                <div style={{ fontSize: 15 }}>{job.description}</div>
+              </div>
+            ))
+          )}
         </div>
       </div>
     );
@@ -310,15 +385,24 @@ export default function Dashboard() {
                   company={c}
                   jobsPosted={jobsPerCompany[c.name]}
                   jobs={jobs}
+                  onViewJobs={() => handleViewJobs(c.name)}
                 />
               ))
             )}
           </div>
         </main>
       </div>
+
+      {/* View Jobs Modal */}
+      <ViewJobsModal
+        open={showJobsModal}
+        companyName={selectedCompany}
+        onClose={() => setShowJobsModal(false)}
+      />
     </div>
   );
 }
+
 
 
 
