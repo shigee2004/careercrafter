@@ -27,7 +27,9 @@ export default function LoginPage() {
       // persist whatever token you have; here we'll save their ID + role
       localStorage.setItem('token', user.id);
       localStorage.setItem('userId', user.id);
-      localStorage.setItem('role', user.role);
+
+      // --- IMPORTANT: Save the role for routing protection ---
+      localStorage.setItem('role', user.role); // 'employer' or 'jobseeker'
 
       // *** NAVIGATION TWEAK FOR EMPLOYERS ***
       if (user.role === 'employer') {
@@ -99,22 +101,23 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    background: '#e0f7fa',
+    background: '#eef6ff',  // lighter blue shade
     padding: '1rem',
   },
   card: {
     background: '#fff',
     padding: '2.5rem',
     borderRadius: '12px',
-    boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+    boxShadow: '0 8px 24px rgba(25, 118, 210, 0.08)',
     width: '360px',
     textAlign: 'center',
   },
   heading: {
     marginBottom: '1.5rem',
-    color: '#00796b',
+    color: '#1976d2',   // main blue, NO GREEN
     fontSize: '1.75rem',
     fontFamily: 'Segoe UI, sans-serif',
+    fontWeight: 700,
   },
   form: { display: 'flex', flexDirection: 'column' },
   input: {
@@ -136,17 +139,20 @@ const styles = {
   button: {
     width: '100%',
     padding: '12px',
-    background: '#004179ff',
+    background: '#1976d2',   // blue!
     color: '#fff',
     border: 'none',
     borderRadius: '8px',
     fontSize: '1rem',
     cursor: 'pointer',
+    fontWeight: 600,
   },
   signupText: { marginTop: '1.25rem', fontSize: '0.9rem', color: '#555' },
-  link: { color: '#00796b', textDecoration: 'none', fontWeight: '600' },
+  link: { color: '#1976d2', textDecoration: 'none', fontWeight: '600' },  // blue link
   error: { color: 'red', marginBottom: '1rem' }
 };
+
+
 
 
 

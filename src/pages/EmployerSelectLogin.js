@@ -30,9 +30,16 @@ export default function EmployerSelectLogin() {
     try {
       const res = await loginUser({ email, password, role: 'employer' });
       if (res.data.length > 0) {
-        // store token and company
+        // store token and company info
         localStorage.setItem('token', res.data[0].id);
         localStorage.setItem('companyId', companyId);
+
+        // Also save the company name for future job posting or display
+        const selectedCompany = companies.find(c => c.id === companyId);
+        if (selectedCompany) {
+          localStorage.setItem('companyName', selectedCompany.name);
+        }
+
         navigate('/employer');
       } else {
         setError('Invalid credentials');
@@ -84,3 +91,4 @@ export default function EmployerSelectLogin() {
     </>
   );
 }
+

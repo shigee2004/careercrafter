@@ -15,18 +15,14 @@ import ResumePage          from './pages/ResumePage';
 import ViewResumePage      from './pages/ViewResumePage';
 import EmployerDashboard   from './pages/EmployerDashboard';
 import EmployerSelectLogin from './pages/EmployerSelectLogin';
-import ApplyJobPage  from './pages/ApplyJobPage';
+import ApplyJobPage        from './pages/ApplyJobPage';
 
 // ───── Employer feature pages ─────
 import PostJob             from './components/employer/PostJob';
 import ManageJobs          from './components/employer/ManageJobs';
-
 import ViewApplications    from './components/employer/ViewApplications';
 
-function PrivateRoute({ children }) {
-  const auth = Boolean(localStorage.getItem('token'));
-  return auth ? children : <Navigate to="/login" replace />;
-}
+import ProtectedRoute      from './components/ProtectedRoute';
 
 export default function App() {
   const auth = Boolean(localStorage.getItem('token'));
@@ -39,7 +35,7 @@ export default function App() {
           path="/"
           element={
             auth
-              ? <Navigate to="/dashboard" replace />
+              ? <Navigate to={localStorage.getItem('role') === 'employer' ? "/employer/apps" : "/dashboard"} replace />
               : <Navigate to="/login" replace />
           }
         />
@@ -47,57 +43,30 @@ export default function App() {
         {/* auth */}
         <Route
           path="/login"
-          element={auth ? <Navigate to="/dashboard" replace /> : <LoginPage />}
+          element={auth ? <Navigate to={localStorage.getItem('role') === 'employer' ? "/employer/apps" : "/dashboard"} replace /> : <LoginPage />}
         />
         <Route
           path="/register"
-          element={auth ? <Navigate to="/dashboard" replace /> : <RegisterPage />}
+          element={auth ? <Navigate to={localStorage.getItem('role') === 'employer' ? "/employer/apps" : "/dashboard"} replace /> : <RegisterPage />}
         />
 
-        {/* job‑seeker */}
-        <Route
-          path="/dashboard"
-          element={<PrivateRoute><Dashboard /></PrivateRoute>}
-        />
-        <Route
-          path="/profile"
-          element={<PrivateRoute><ProfilePage /></PrivateRoute>}
-        />
-        <Route
-          path="/resume"
-          element={<PrivateRoute><ResumePage /></PrivateRoute>}
-        />
-        <Route
-          path="/resume/:id"
-          element={<PrivateRoute><ViewResumePage /></PrivateRoute>}
-        />
+        {/* JOBSEEKER protected area */}
+        <Route element={<ProtectedRoute requiredRole="jobseeker" />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/resume" element={<ResumePage />} />
+          <Route path="/resume/:id" element={<ViewResumePage />} />
+          <Route path="/apply/:jobId" element={<ApplyJobPage />} />
+        </Route>
 
-        {/* employer */}
-        <Route
-          path="/employer"
-          element={<PrivateRoute><EmployerDashboard /></PrivateRoute>}
-        />
-        <Route
-          path="/employer/post"
-          element={<PrivateRoute><PostJob /></PrivateRoute>}
-        />
-        <Route
-          path="/employer/manage"
-          element={<PrivateRoute><ManageJobs /></PrivateRoute>}
-        />
-        
-        <Route
-          path="/employer/apps"
-          element={<PrivateRoute><ViewApplications /></PrivateRoute>}
-        />
-        {/* after initial employer-login we hit this select page */}
-        <Route path="/employer/select" element={
-        <PrivateRoute><EmployerSelectLogin/></PrivateRoute>}
-        />
-        <Route path="/apply/:jobId" element={
-          <PrivateRoute><ApplyJobPage/></PrivateRoute>}
-        />
-
+        {/* EMPLOYER protected area */}
+        <Route element={<ProtectedRoute requiredRole="employer" />}>
+          <Route path="/employer" element={<EmployerDashboard />} />
+          <Route path="/employer/post" element={<PostJob />} />
+          <Route path="/employer/manage" element={<ManageJobs />} />
+          <Route path="/employer/apps" element={<ViewApplications />} />
+          <Route path="/employer/select" element={<EmployerSelectLogin />} />
+        </Route>
 
         {/* fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
@@ -105,6 +74,7 @@ export default function App() {
     </Router>
   );
 }
+
 
 
 

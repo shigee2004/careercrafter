@@ -1,18 +1,20 @@
 // src/components/Navbar.jsx
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FiMenu, FiMoon, FiSun, FiUser, FiSettings } from 'react-icons/fi';
+import { FiMenu } from 'react-icons/fi';
 
 export default function Navbar({
   onMenuClick,   // optional
-  darkMode,
+  darkMode,    
   toggleTheme
 }) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    navigate('/login');
+    localStorage.removeItem('userId');  
+    localStorage.removeItem('role');    // <-- CLEAR ROLE ON LOGOUT
+    navigate('/login', { replace: true });  // force redirect, disables "back"
   };
 
   return (
@@ -29,10 +31,6 @@ export default function Navbar({
       </div>
 
       <div style={styles.actions}>
-        <button onClick={toggleTheme} style={styles.iconBtn}>
-          {darkMode ? <FiSun size={20}/> : <FiMoon size={20}/>}
-        </button>
-        
         <button onClick={handleLogout} style={styles.logoutBtn}>
           Log Out
         </button>
@@ -96,6 +94,7 @@ const styles = {
     fontFamily: 'Segoe UI, sans-serif',
   }
 };
+
 
 
 

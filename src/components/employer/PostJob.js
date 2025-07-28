@@ -1,4 +1,3 @@
-// src/components/employer/PostJob.js
 import React, { useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Sidebar from '../../components/Sidebar';
@@ -14,6 +13,7 @@ export default function PostJob() {
     workplaceType: '',
     location: '',
     type: '',
+    salary: '',
     description: '',
     featured: false
   });
@@ -29,7 +29,14 @@ export default function PostJob() {
   const handleSubmit = e => {
     e.preventDefault();
 
-    createJob(form)
+    // Add postedAt and company name from localStorage
+    const jobWithCompany = {
+      ...form,
+      postedAt: new Date().toISOString(),
+      company: localStorage.getItem('companyName') || '',
+    };
+
+    createJob(jobWithCompany)
       .then(res => {
         alert('Job posted successfully!');
         // reset to blank
@@ -38,6 +45,7 @@ export default function PostJob() {
           workplaceType: '',
           location: '',
           type: '',
+          salary: '',
           description: '',
           featured: false
         });
@@ -120,8 +128,8 @@ export default function PostJob() {
               <label>
                 Salary Range:
                 <input
-                  name="salary"                  // ← NEW
-                  placeholder="e.g. 80k‑100k"  // ← NEW
+                  name="salary"
+                  placeholder="e.g. 80k‑100k"
                   value={form.salary}
                   onChange={handleChange}
                 />
@@ -158,5 +166,7 @@ export default function PostJob() {
     </div>
   );
 }
+
+
 
 

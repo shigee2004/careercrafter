@@ -38,59 +38,28 @@
   ],
   "jobs": [
     {
-      "title": "Senior Frontend Developer",
-      "company": "TechCorp Inc.",
-      "location": "San Francisco, CA",
-      "type": "Full‑time",
-      "description": "Join our team to build cutting‑edge web applications using React, TypeScript, and modern web technologies.",
-      "featured": true,
-      "postedAgo": "2 days ago",
-      "id": "job1"
-    },
-    {
-      "title": "software developer",
-      "company": "hexaware",
-      "location": "chennai",
-      "type": "Full-time",
-      "description": "coding skills (Java)",
-      "featured": false,
-      "postedAgo": "",
-      "id": "5b76"
-    },
-    {
-      "title": "desinger",
-      "location": "banglore",
-      "type": "Full-time",
-      "description": "communication",
-      "postedAgo": "",
-      "id": "3bbb"
-    },
-    {
-      "id": "b387",
-      "title": "ux designer",
-      "workplaceType": "On-site",
-      "location": "tamilnadu",
-      "type": "Full-time",
-      "description": "creativity",
-      "featured": true
-    },
-    {
-      "id": "bbae",
-      "title": "web devoloper",
+      "id": "b0a1",
+      "title": "software tester",
       "workplaceType": "Remote",
       "location": "chennai",
-      "type": "Internship",
-      "description": "good skilles in javascript,react and node.js",
-      "featured": true
+      "type": "Part-time",
+      "salary": "20k-30k",
+      "description": "good java and AI skills with prompt engineering",
+      "featured": true,
+      "postedAt": "2025-07-28T11:42:00.116Z",
+      "company": "TechCorp Inc."
     },
     {
-      "id": "3f97",
-      "title": "web devoloper",
+      "id": "463f",
+      "title": "software tester",
       "workplaceType": "On-site",
       "location": "chennai",
       "type": "Full-time",
-      "salary": "80k-100k",
-      "description": "good communication"
+      "salary": "20k-30k",
+      "description": "testing skils",
+      "featured": true,
+      "postedAt": "2025-07-28T12:30:51.952Z",
+      "company": "TechCorp Inc."
     }
   ],
   "companies": [
@@ -106,75 +75,6 @@
         "Remote‑first",
         "Learning & Development",
         "Work‑life balance"
-      ]
-    },
-    {
-      "id": "comp2",
-      "name": "InnovateLab",
-      "industry": "AI & Machine Learning",
-      "rating": 4.9,
-      "location": "Remote",
-      "size": "500‑1,000",
-      "openRoles": 23,
-      "tags": [
-        "Innovation",
-        "Diversity & Inclusion",
-        "Flexible hours"
-      ]
-    },
-    {
-      "id": "comp3",
-      "name": "DesignStudio",
-      "industry": "Design & Creative",
-      "rating": 4.7,
-      "location": "New York, NY",
-      "size": "100‑500",
-      "openRoles": 12,
-      "tags": [
-        "Creative freedom",
-        "Mentorship",
-        "Growth mindset"
-      ]
-    },
-    {
-      "id": "comp4",
-      "name": "DataCorp",
-      "industry": "Data & Analytics",
-      "rating": 4.6,
-      "location": "Austin, TX",
-      "size": "200‑500",
-      "openRoles": 18,
-      "tags": [
-        "Data‑driven",
-        "Collaboration",
-        "Impact"
-      ]
-    },
-    {
-      "id": "comp5",
-      "name": "BuildIt",
-      "industry": "Construction Tech",
-      "rating": 4.5,
-      "location": "Chicago, IL",
-      "size": "300‑800",
-      "openRoles": 30,
-      "tags": [
-        "Engineering Excellence",
-        "Sustainability"
-      ]
-    },
-    {
-      "id": "comp6",
-      "name": "FinTechCo",
-      "industry": "Finance Technology",
-      "rating": 4.4,
-      "location": "Boston, MA",
-      "size": "150‑400",
-      "openRoles": 20,
-      "tags": [
-        "Security",
-        "Scalability",
-        "Innovation"
       ]
     }
   ],
@@ -300,7 +200,9 @@
       "candidateEmail": "shigee2004@gmail.com",
       "candidatePhone": "08148581706",
       "resumeFileName": "resume.pdf",
-      "coverLetter": ""
+      "coverLetter": "",
+      "status": "Shortlisted",
+      "notified": true
     },
     {
       "id": "0036",
@@ -311,7 +213,35 @@
       "candidateEmail": "shigee2004@gmail.com",
       "candidatePhone": "12345678",
       "resumeFileName": "",
-      "coverLetter": ""
+      "coverLetter": "",
+      "status": "Rejected",
+      "notified": true
+    },
+    {
+      "id": "bb7b",
+      "jobId": null,
+      "companyId": "comp1",
+      "userId": "7644",
+      "candidateName": "shigee",
+      "candidateEmail": "shigee2004@gmail.com",
+      "candidatePhone": "12345678",
+      "resumeFileName": "",
+      "coverLetter": "",
+      "status": "Shortlisted",
+      "notified": true
+    },
+    {
+      "id": "bca0",
+      "jobId": "1a09",
+      "companyId": "comp1",
+      "userId": "7644",
+      "candidateName": "shigee",
+      "candidateEmail": "shigee2004@gmail.com",
+      "candidatePhone": "12345678",
+      "resumeFileName": "",
+      "coverLetter": "",
+      "status": "Rejected",
+      "notified": true
     }
   ]
 }

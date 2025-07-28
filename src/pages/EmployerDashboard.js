@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
-import { FaBullhorn, FaListAlt, FaDatabase, FaInbox } from 'react-icons/fa';
+import { FaBullhorn, FaListAlt, FaInbox } from 'react-icons/fa';
 import './EmployerDashboard.css';
 
 
