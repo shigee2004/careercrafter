@@ -23,7 +23,21 @@ export default function ManageJobs() {
     postedAgo: ''
   });
 
-  // load jobs once
+  const [companyName, setCompanyName] = useState('');
+
+  // Get the logged-in companyId from localStorage
+  const companyId = localStorage.getItem('companyId');
+
+  // Load company name by companyId
+  useEffect(() => {
+    if (!companyId) return;
+    fetch(`http://localhost:8000/companies/${companyId}`)
+      .then(res => res.json())
+      .then(data => setCompanyName(data.name))
+      .catch(() => setCompanyName(''));
+  }, [companyId]);
+
+  // Load jobs once
   useEffect(() => {
     fetchJobs()
       .then(r => setJobs(r.data))
@@ -78,16 +92,19 @@ export default function ManageJobs() {
       .catch(console.error);
   }
 
+  // ----- FILTER: Show only jobs of this company -----
+  const filteredJobs = jobs.filter(job => job.company === companyName);
+
   return (
     <EmployerLayout>
       <h2 className="page-header">Manage Your Jobs</h2>
 
-      {jobs.length === 0 && (
+      {filteredJobs.length === 0 && (
         <p className="empty-msg">You haven’t posted any jobs yet.</p>
       )}
 
       <ul className="jobs-list">
-        {jobs.map(job => (
+        {filteredJobs.map(job => (
           <li key={job.id} className="job-card">
             {editingId === job.id ? (
               <div className="job-edit-form">
@@ -167,6 +184,7 @@ export default function ManageJobs() {
     </EmployerLayout>
   );
 }
+
 
 
 

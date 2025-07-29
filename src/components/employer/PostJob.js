@@ -26,35 +26,54 @@ export default function PostJob() {
     }));
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
+ const handleSubmit = async e => {
+  e.preventDefault();
 
-    // Add postedAt and company name from localStorage
-    const jobWithCompany = {
-      ...form,
-      postedAt: new Date().toISOString(),
-      company: localStorage.getItem('companyName') || '',
-    };
+  // Get the current companyId from localStorage
+  const companyId = localStorage.getItem('companyId');
+  if (!companyId) {
+    alert("Company not found. Please login again.");
+    return;
+  }
 
-    createJob(jobWithCompany)
-      .then(res => {
-        alert('Job posted successfully!');
-        // reset to blank
-        setForm({
-          title: '',
-          workplaceType: '',
-          location: '',
-          type: '',
-          salary: '',
-          description: '',
-          featured: false
-        });
-      })
-      .catch(err => {
-        console.error(err);
-        alert('Failed to post job.');
-      });
+  // Fetch the company details (to get the correct company name)
+  let companyName = '';
+  try {
+    const res = await fetch(`http://localhost:8000/companies/${companyId}`);
+    if (!res.ok) throw new Error("Not found");
+    const company = await res.json();
+    companyName = company.name;
+  } catch (err) {
+    alert("Could not fetch company info. Please login again.");
+    return;
+  }
+
+  // Compose job object
+  const jobWithCompany = {
+    ...form,
+    postedAt: new Date().toISOString(),
+    company: companyName,
   };
+
+  createJob(jobWithCompany)
+    .then(res => {
+      alert('Job posted successfully!');
+      // reset to blank
+      setForm({
+        title: '',
+        workplaceType: '',
+        location: '',
+        type: '',
+        salary: '',
+        description: '',
+        featured: false
+      });
+    })
+    .catch(err => {
+      console.error(err);
+      alert('Failed to post job.');
+    });
+};
 
   return (
     <div style={{ paddingTop: 60 /* navbar height */ }}>
